@@ -123,7 +123,7 @@ if args.create_group:
 if args.delete_group:
     print("[Deleting group: %s]" % args.delete_group, end='')
     del dots_data[args.delete_group]
-    # TODO: Delete associated data from dots folder
+    # TODO: Delete associated data from dots folder (?)
     print("[Ok]")
 
 # Lists managed groups and dots
@@ -155,5 +155,6 @@ if args.install:
         install_group(args.install, dots_data)
     print("[Done installing dot files]")
 
+# Save data json
 with open("dots/dots.json", "w") as dots_file:
     json.dump(dots_data, dots_file)
