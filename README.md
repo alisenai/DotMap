@@ -2,7 +2,12 @@
 ## Intro
 A simple python script for managing dotfiles.
 
+Dot files are called `dot`s and are split into `group`s to help distinguish them.
+Using this script, any group may be installed, or all at once.
+
+
 ## Usage
+Basic usage is as follows:
 ```
 $ python3 DotMap.py -h
 usage: DotMap.py
@@ -24,4 +29,37 @@ optional arguments:
   --list                                     Lists all stored dot files
  $ 
  ```
+
+## Eamples
+### Managing Groups
+**Creating a Group:**
+
+**Example: Creating a new group with the name `polybar`, which can then store dot files within it.**
+```
+python3 DotMap.py --create-group polybar
+```
+
+**Listing Existing Groups:**
+```
+python3 DotMap.py --list-groups
+```
+
+**Example: Deleting the group `polybar` and all the `dot`s within it.**
+```
+python3 DotMap.py --delete-group polybar
+```
+
+### Managing Dots
+**Example: Adding a polybar dotfile to the `polybar` group.**
+```
+python3 DotMap.py --add-dot polybar ~/.config/polybar/config dots/polybar/config
+```
+
+This will create a copy of `~/.config/polybar/config` to `dots/polybar/config` and create a dot reference under the`polybar` group
+
+**Example: Delete a polybar dotfile from the `polybar` group.**
+```
+python3 DotMap.py --delete-dot polybar dots/polybar/config
+```
+
 
